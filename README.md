@@ -18,6 +18,47 @@ and `scripts/` (entry points and node drivers), with its own README.
 `third_party/DrivingGen` is DrivingGen's `drivinggen/` and `scripts/` at 48ed356,
 unmodified. `third_party/Task_specific_JDM` is a submodule providing `f_toy`.
 
+## Checkpoints
+
+Three trained models, in
+[Google Drive](https://drive.google.com/drive/folders/1kv8P2oRp-c6zdsQd_aaVNAz1QQPCfkAx?usp=sharing).
+Full settings, logs and md5s are in [`conditioning/runs/`](conditioning/runs/).
+
+| | MiniWan | Probe | Traj-VAE v2 |
+|---|---|---|---|
+| file | `miniwan/best.pt` | `probe/probe.pt` | `traj_vae/best.pt` |
+| params | 5.60M | 1.42M | 2.39M encoder + 0.26M heads |
+| input | 33 frames, $96\times96$, 7 Hz (`womd_7hz_f33`) | 16 frames, $96\times96$ (`driving_wp_f16`) | 33 frames, $96\times96$, 7 Hz (`womd_7hz_f33`) |
+| output | latent $16\times9\times12\times12$ | 15 ego-pose increments | $r$, latent $16\times9\times12\times12$ |
+
+**MiniWan**: a small Wan2.1-style causal 3D video VAE with width 20 and 16 latent
+channels. It compresses 8x in space and 4x in time, with causal convolutions, so latent
+frame $t$ only sees raw frames up to its own chunk. It is the video latent space for
+`womd_7hz_f33`, and its encoder initialises Traj-VAE v2. It was trained from scratch
+for 50 epochs on 4 GPUs (effective batch 24) with MSE, LPIPS $\times0.05$ and KL
+$\times3\times10^{-4}$. Validation, 4,000 clips: PSNR 31.33 dB, LPIPS 0.0198.
+
+**Probe**: a CNN that reads the ego trajectory out of a clip. Each adjacent frame pair is
+stacked into 6 channels and passed through a shared 2D trunk ($96\to3$, width 256). Two
+temporal 1D convolutions follow, then a head that predicts
+$(\Delta_\text{forward}, \Delta_\text{lateral}, \Delta_\text{heading})$ per step. The
+increments are composed as SE(2) transforms into a trajectory. It is the stage-1
+trajectory extractor, used to score the ego path in real or generated clips. It shares no
+weights with any conditioning representation. It was trained from scratch for 20 epochs
+on one GPU with half the clips passed through a VAE round trip, so it tolerates generated
+frames. Its floor on the test split: ADE 0.225 m on real frames, 0.274 m after the VAE
+round trip.
+
+**Traj-VAE v2**: MiniWan's encoder, cloned and fine-tuned, with training-only heads on
+its latent $r$ (the encoder's $\mu$). The heads predict per-frame ego motion, 4 s
+waypoints from the first $k\in\{1,2,3\}$ latent frames (6 hypotheses, loss on the
+closest), a $12\times12$ agent occupancy grid, and scene labels (lane curvature,
+intersection, traffic light). The heads are dropped after training. $r$ is the V
+conditioning source: a driving-specific representation that stays informative from one
+context latent frame. It was trained for 30 epochs on 4 GPUs with encoder lr
+$5\times10^{-5}$ and head lr $10^{-3}$. Best epoch is 19: waypoint ADE 3.61 / 2.79 /
+2.83 m at $k$ = 1 / 2 / 3.
+
 ## Setup
 
 ```bash
