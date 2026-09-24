@@ -18,6 +18,50 @@ and `scripts/` (entry points and node drivers), with its own README.
 `third_party/DrivingGen` is DrivingGen's `drivinggen/` and `scripts/` at 48ed356,
 unmodified. `third_party/Task_specific_JDM` is a submodule providing `f_toy`.
 
+## Datasets
+
+**`womd_7hz_f33`**: Waymo Open Motion v1.3.0 `training_20s` scenarios, resampled to
+7 Hz and rendered in MetaDrive as ego-camera clips of 33 frames at $96\times96$, with
+ego pose, 4 s future waypoints, 32 agent boxes and scene labels per frame. Two clips per
+scenario; splits have no scenario in common.
+
+| split | clips | scenarios |
+|---|---|---|
+| train | 40,000 | 20,000 |
+| val | 4,000 | 2,000 |
+| test | 4,000 | 2,000 |
+
+About 48 GB uncompressed (`videos.npy` + `annotations.npz` per split). Copies:
+
+- [Google Drive](https://drive.google.com/drive/folders/1kv8P2oRp-c6zdsQd_aaVNAz1QQPCfkAx?usp=sharing),
+  `womd_7hz_f33/`: the full folder, including `traj_targets.npz` for Traj-VAE v2, as
+  `womd_7hz_f33.tar.zst.part-00..05` (24.7 GB) with `MD5SUMS` and `README.txt`.
+- `volume://vessl-storage/yethu-drive/womd/womd_7hz_f33/`: the three splits as
+  `{train,val,test}.tar.zst.part-*` (26 GB) with `manifest.json` (md5s), `README.md` and
+  `checks.json`; without `traj_targets.npz`, which
+  `conditioning/scripts/prep_traj_targets.py` rebuilds.
+
+```bash
+cat womd_7hz_f33.tar.zst.part-* | zstd -d | tar -x -C data/     # Drive copy
+```
+
+Built by [`womd/`](womd/).
+
+**Unified nuScenes + Waymo clips**: nuScenes CAM_FRONT and Waymo Open Dataset v2 FRONT in
+one format, $448\times256$ over 69 frames at 10 Hz (6.9 s), centre-cropped to 7:4, three
+clips per scene. Each clip carries intrinsics at that resolution, ego pose, per-step
+body-frame increments and caption context. Distortion is recorded, not removed.
+
+| source | scenes | clips | size | split |
+|---|---|---|---|---|
+| nuScenes | 850 | 2,550 | 7.3 GB | 1,800 train, 750 held-out probe pool |
+| Waymo v2 | 1,016 | 3,048 | 8.6 GB | 2,394 training, 606 validation, 48 testing |
+
+Stored at `volume://vessl-storage/yethu-drive/clips/` as one tar per scene
+(`{nuscenes,waymo}/shards/`, `clip0..2/{00000..00068}.jpg` plus `meta.json`), a
+per-dataset `index.json`, `manifest.json` and `README.md`. Format in
+[`unified/docs/FORMAT.md`](unified/docs/FORMAT.md); built by [`unified/`](unified/).
+
 ## Checkpoints
 
 Three trained models, in
