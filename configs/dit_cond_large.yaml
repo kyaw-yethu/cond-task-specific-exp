@@ -1,0 +1,30 @@
+# Conditioned MiniDiT at the dit_large preset, trained from scratch. Identical
+# to dit_cond.yaml in every field except the backbone: same 100 epochs,
+# effective batch 32, cosine 2e-4 schedule and weight decay, so a change between
+# the two isolates backbone capacity.
+#
+# DIT_CROSSATTN_DIM is set at runtime from the encoder's width, so it is absent
+# here on purpose: leaving it unset makes this file condition N as written.
+dit_name: dit_large         # ~30.10M params: width 384, 8 blocks, 6 heads
+
+DATASET: waymo
+EPOCHS: 100
+BATCH: 16                   # per rank; runs pass --batch 32 on one card
+FRAMES: 16
+IMG: 96
+
+DIT_LR_SCHEDULE: cosine
+DIT_LR: 2.0e-4
+DIT_LR_END: 1.0e-6
+WARMUP_FRAC: 0.1
+DIT_WD: 0.001
+
+DIT_PATCH_SPATIAL: 1
+DIT_PATCH_TEMPORAL: 1
+DIT_DROPOUT: 0.0
+
+# Unused when training from a cache, which fixes k at its own value.
+DIT_MIN_COND_FRAMES: 1
+DIT_MAX_COND_FRAMES: 2
+
+DIT_SAMPLE_EVERY_EPOCHS: 0

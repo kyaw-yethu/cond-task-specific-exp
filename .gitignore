@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.runtime/
+
+# data, checkpoints and outputs stay on the workspace
+data/
+cache/
+checkpoints/
+out/
+ckpt/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.npz
+*.mp4
+*.gif
+
+# fetched by scripts/setup_third_party.sh
+third_party/DrivingGen/third_parties/

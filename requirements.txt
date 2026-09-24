@@ -1,0 +1,18 @@
+# torch is not listed: on cluster-3090 (driver 525) install
+#   torch==2.3.1 torchvision==0.18.1 --index-url https://download.pytorch.org/whl/cu121
+# first, then keep numpy<2 and do not install xformers.
+numpy<2
+scipy
+einops
+pyyaml
+pillow
+matplotlib
+imageio
+imageio-ffmpeg
+scikit-image
+opencv-python-headless
+lpips
+pytest
+# data fetching only
+gcsfs
+pyarrow
