@@ -1,0 +1,31 @@
+# Conditioned MiniDiT, trained from scratch. Deliberately identical to
+# Task_specific_JDM's dit10m32b100e.yaml in every numerical field, so that
+# condition N trained with conditioning/scripts/train_dit_cond.py is comparable to that
+# checkpoint and the five conditions are budget-matched to each other.
+#
+# DIT_CROSSATTN_DIM is set at runtime from the encoder's width, so it is absent
+# here on purpose: leaving it unset makes this file condition N as written.
+dit_name: dit_base          # ~10.10M params
+
+DATASET: waymo
+EPOCHS: 100
+BATCH: 16                   # per rank; 16 x 2 = 32 effective, as the baseline
+FRAMES: 16
+IMG: 96
+
+DIT_LR_SCHEDULE: cosine
+DIT_LR: 2.0e-4
+DIT_LR_END: 1.0e-6
+WARMUP_FRAC: 0.1
+DIT_WD: 0.001
+
+DIT_PATCH_SPATIAL: 1
+DIT_PATCH_TEMPORAL: 1
+DIT_DROPOUT: 0.0
+
+DIT_MIN_COND_FRAMES: 1
+DIT_MAX_COND_FRAMES: 2
+
+# Sampling previews are left to conditioning/scripts/eval_dit.py rather than the training
+# loop, so nothing here competes with the conditioned forward for GPU.
+DIT_SAMPLE_EVERY_EPOCHS: 0

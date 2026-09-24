@@ -17,5 +17,5 @@ __pycache__/
 *.mp4
 *.gif
 
-# fetched by scripts/setup_third_party.sh
+# fetched by dg_eval/scripts/setup_third_party.sh
 third_party/DrivingGen/third_parties/
