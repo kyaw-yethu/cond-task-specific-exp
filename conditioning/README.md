@@ -39,7 +39,7 @@ frames. Needs `third_party/Task_specific_JDM` (`f_toy`) on the path.
 **Node drivers**: `node_build_and_train.sh` (cache, then train one tag),
 `node_build_cache.sh`, `node_train_cond.sh`, `node_eval_cond.sh`, `node_train_probe.sh`,
 `node_orchestrate.sh` (evaluate, compare and write results once training ends),
-`node_orchestrate_k1.sh` with `node_k1_chain.sh` (the k=1 `dit_large` screen),
+`node_orchestrate_k1.sh` and `node_orchestrate_womd_k2.sh` with `node_chain.sh` (fixed-k `dit_large` screens),
 `node_check_figs.sh`, `setup_cudafix.sh`.
 
 ```bash
