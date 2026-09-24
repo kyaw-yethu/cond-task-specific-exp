@@ -1,0 +1,285 @@
+== traj_v2: encoder 2.39M (from vae_miniwan_womd), heads 0.26M; world 4, per-rank batch 6 (effective 24); 1666 steps/epoch, 49980 total
+{"run": "traj_v2", "epochs": 30, "batch": 6, "enc_lr": 5e-05, "head_lr": 0.001, "lr_end_frac": 0.01, "warmup_frac": 0.05, "wd": 1e-05, "kl_w": 0.0001, "w_motion": 1.0, "w_way": 1.0, "w_occ": 0.5, "w_scene": 0.25, "dropout": 0.1, "grad_clip": 1.0, "val_clips": 500, "stats_clips": 4000, "max_steps": 0, "workers": 5, "seed": 0, "VAE_RUN": "/root/cond-drivejepa-exp/checkpoints/womd/vae_miniwan_womd/best.pt", "VAE_ZDIM": 16, "VAE_DIM": 20, "VAE_NUM_RES_BLOCKS": 2, "VAE_INPUT_NORM": true, "FRAMES": 33, "IMG": 96, "FPS": 7, "DATASET": "womd_7hz_f33", "FUT": 28}
+  step 1 (1/1666) | 4537 ms/step | ~126 min left in epoch | motion 5.5040 way 30.4320 way_cls 1.4878 occ 0.6655 curv 0.0434 inter 0.7465 tl 1.5411 kl 0.5901
+  step 200 (200/1666) | 213 ms/step | ~5 min left in epoch | motion 2.7554 way 17.3795 way_cls 1.4010 occ 0.4633 curv 0.0302 inter 0.5613 tl 0.9897 kl 1.0941
+  step 400 (400/1666) | 203 ms/step | ~4 min left in epoch | motion 2.1988 way 11.7654 way_cls 1.9743 occ 0.3688 curv 0.0397 inter 0.4779 tl 0.7121 kl 1.6468
+  step 600 (600/1666) | 200 ms/step | ~4 min left in epoch | motion 1.8288 way 9.1039 way_cls 2.0149 occ 0.3396 curv 0.0404 inter 0.4472 tl 0.6154 kl 1.6916
+  step 800 (800/1666) | 198 ms/step | ~3 min left in epoch | motion 1.5808 way 7.6460 way_cls 2.0179 occ 0.3222 curv 0.0478 inter 0.4292 tl 0.5749 kl 1.7143
+  step 1000 (1000/1666) | 197 ms/step | ~2 min left in epoch | motion 1.3921 way 6.6553 way_cls 1.9934 occ 0.3018 curv 0.0517 inter 0.4150 tl 0.5313 kl 1.7165
+  step 1200 (1200/1666) | 197 ms/step | ~2 min left in epoch | motion 1.2543 way 5.9686 way_cls 1.9930 occ 0.2849 curv 0.0573 inter 0.4030 tl 0.4966 kl 1.6998
+  step 1400 (1400/1666) | 196 ms/step | ~1 min left in epoch | motion 1.1456 way 5.4172 way_cls 1.9850 occ 0.2687 curv 0.0601 inter 0.3931 tl 0.4699 kl 1.6728
+  step 1600 (1600/1666) | 196 ms/step | ~0 min left in epoch | motion 1.0660 way 4.9919 way_cls 1.9704 occ 0.2556 curv 0.0609 inter 0.3856 tl 0.4502 kl 1.6416
+[traj_v2] ep   1/30 train motion 1.0394 way 4.8588 way_cls 1.9625 occ 0.2524 curv 0.0607 inter 0.3822 tl 0.4446 kl 1.6298 | val 2.1709 ADE k1 2.885 k2 3.051 k3 3.175 (342s)  *best*
+  step 1800 (134/1666) | 194 ms/step | ~5 min left in epoch | motion 0.5001 way 1.8063 way_cls 1.8394 occ 0.1623 curv 0.0463 inter 0.2997 tl 0.2976 kl 1.3303
+  step 2000 (334/1666) | 194 ms/step | ~4 min left in epoch | motion 0.4936 way 1.7848 way_cls 1.8175 occ 0.1559 curv 0.0617 inter 0.3161 tl 0.3231 kl 1.2744
+  step 2200 (534/1666) | 194 ms/step | ~4 min left in epoch | motion 0.4825 way 1.7536 way_cls 1.8380 occ 0.1592 curv 0.0569 inter 0.3149 tl 0.3184 kl 1.2375
+  step 2400 (734/1666) | 194 ms/step | ~3 min left in epoch | motion 0.4831 way 1.7139 way_cls 1.8324 occ 0.1579 curv 0.0599 inter 0.3134 tl 0.3094 kl 1.2109
+  step 2600 (934/1666) | 194 ms/step | ~2 min left in epoch | motion 0.4736 way 1.6809 way_cls 1.8250 occ 0.1563 curv 0.0563 inter 0.3143 tl 0.3107 kl 1.1850
+  step 2800 (1134/1666) | 194 ms/step | ~2 min left in epoch | motion 0.4757 way 1.6624 way_cls 1.8341 occ 0.1547 curv 0.0519 inter 0.3173 tl 0.3127 kl 1.1586
+  step 3000 (1334/1666) | 194 ms/step | ~1 min left in epoch | motion 0.4636 way 1.6283 way_cls 1.8266 occ 0.1539 curv 0.0495 inter 0.3152 tl 0.3071 kl 1.1382
+  step 3200 (1534/1666) | 194 ms/step | ~0 min left in epoch | motion 0.4549 way 1.5971 way_cls 1.8289 occ 0.1526 curv 0.0456 inter 0.3139 tl 0.3012 kl 1.1196
+[traj_v2] ep   2/30 train motion 0.4543 way 1.5879 way_cls 1.8253 occ 0.1519 curv 0.0431 inter 0.3125 tl 0.3003 kl 1.1089 | val 2.3903 ADE k1 4.573 k2 5.053 k3 5.005 (339s)
+  step 3400 (68/1666) | 193 ms/step | ~5 min left in epoch | motion 0.4029 way 1.4334 way_cls 1.7789 occ 0.1539 curv 0.0181 inter 0.2989 tl 0.3471 kl 0.9726
+  step 3600 (268/1666) | 193 ms/step | ~5 min left in epoch | motion 0.3849 way 1.4110 way_cls 1.7865 occ 0.1399 curv 0.0182 inter 0.3120 tl 0.3223 kl 1.0021
+  step 3800 (468/1666) | 194 ms/step | ~4 min left in epoch | motion 0.3763 way 1.3796 way_cls 1.7981 occ 0.1402 curv 0.0190 inter 0.3021 tl 0.3035 kl 1.0088
+  step 4000 (668/1666) | 194 ms/step | ~3 min left in epoch | motion 0.3689 way 1.3644 way_cls 1.7739 occ 0.1433 curv 0.0187 inter 0.3019 tl 0.2904 kl 1.0052
+  step 4200 (868/1666) | 194 ms/step | ~3 min left in epoch | motion 0.3762 way 1.3764 way_cls 1.7727 occ 0.1411 curv 0.0198 inter 0.3030 tl 0.2802 kl 1.0041
+  step 4400 (1068/1666) | 194 ms/step | ~2 min left in epoch | motion 0.3728 way 1.3607 way_cls 1.7770 occ 0.1428 curv 0.0186 inter 0.2998 tl 0.2749 kl 0.9992
+  step 4600 (1268/1666) | 194 ms/step | ~1 min left in epoch | motion 0.3664 way 1.3484 way_cls 1.7771 occ 0.1428 curv 0.0197 inter 0.2992 tl 0.2659 kl 0.9961
+  step 4800 (1468/1666) | 194 ms/step | ~1 min left in epoch | motion 0.3630 way 1.3429 way_cls 1.7750 occ 0.1420 curv 0.0200 inter 0.2983 tl 0.2613 kl 0.9944
+[traj_v2] ep   3/30 train motion 0.3616 way 1.3334 way_cls 1.7750 occ 0.1425 curv 0.0191 inter 0.2982 tl 0.2535 kl 0.9897 | val 1.9045 ADE k1 2.466 k2 2.648 k3 2.655 (338s)  *best*
+  step 5000 (2/1666) | 228 ms/step | ~6 min left in epoch | motion 0.4839 way 0.9779 way_cls 1.4487 occ 0.1060 curv 0.0037 inter 0.1605 tl 0.1620 kl 0.9557
+  step 5200 (202/1666) | 195 ms/step | ~5 min left in epoch | motion 0.3162 way 1.2562 way_cls 1.7035 occ 0.1491 curv 0.0231 inter 0.2586 tl 0.1943 kl 0.9380
+  step 5400 (402/1666) | 195 ms/step | ~4 min left in epoch | motion 0.3345 way 1.2642 way_cls 1.7224 occ 0.1451 curv 0.0237 inter 0.2742 tl 0.2070 kl 0.9312
+  step 5600 (602/1666) | 195 ms/step | ~3 min left in epoch | motion 0.3319 way 1.2531 way_cls 1.7110 occ 0.1437 curv 0.0199 inter 0.2767 tl 0.1981 kl 0.9317
+  step 5800 (802/1666) | 194 ms/step | ~3 min left in epoch | motion 0.3300 way 1.2322 way_cls 1.7097 occ 0.1421 curv 0.0179 inter 0.2748 tl 0.2037 kl 0.9305
+  step 6000 (1002/1666) | 194 ms/step | ~2 min left in epoch | motion 0.3206 way 1.2119 way_cls 1.6953 occ 0.1417 curv 0.0166 inter 0.2730 tl 0.2068 kl 0.9344
+  step 6200 (1202/1666) | 194 ms/step | ~2 min left in epoch | motion 0.3132 way 1.2042 way_cls 1.6816 occ 0.1396 curv 0.0155 inter 0.2718 tl 0.2034 kl 0.9326
+  step 6400 (1402/1666) | 194 ms/step | ~1 min left in epoch | motion 0.3156 way 1.2070 way_cls 1.6862 occ 0.1390 curv 0.0148 inter 0.2706 tl 0.2020 kl 0.9278
+  step 6600 (1602/1666) | 194 ms/step | ~0 min left in epoch | motion 0.3118 way 1.2028 way_cls 1.6862 occ 0.1399 curv 0.0144 inter 0.2688 tl 0.2001 kl 0.9252
+[traj_v2] ep   4/30 train motion 0.3132 way 1.2111 way_cls 1.6826 occ 0.1399 curv 0.0142 inter 0.2693 tl 0.2004 kl 0.9244 | val 1.7285 ADE k1 2.468 k2 2.289 k3 2.220 (339s)  *best*
+  step 6800 (136/1666) | 195 ms/step | ~5 min left in epoch | motion 0.2879 way 1.1774 way_cls 1.7058 occ 0.1287 curv 0.0082 inter 0.2481 tl 0.1638 kl 0.8771
+  step 7000 (336/1666) | 195 ms/step | ~4 min left in epoch | motion 0.2892 way 1.1461 way_cls 1.6802 occ 0.1361 curv 0.0080 inter 0.2552 tl 0.1797 kl 0.8982
+  step 7200 (536/1666) | 195 ms/step | ~4 min left in epoch | motion 0.2960 way 1.1514 way_cls 1.7162 occ 0.1339 curv 0.0078 inter 0.2550 tl 0.1799 kl 0.9020
+  step 7400 (736/1666) | 195 ms/step | ~3 min left in epoch | motion 0.2801 way 1.1248 way_cls 1.6962 occ 0.1337 curv 0.0075 inter 0.2517 tl 0.1823 kl 0.9113
+  step 7600 (936/1666) | 195 ms/step | ~2 min left in epoch | motion 0.2828 way 1.1183 way_cls 1.6934 occ 0.1328 curv 0.0083 inter 0.2532 tl 0.1824 kl 0.9202
+  step 7800 (1136/1666) | 194 ms/step | ~2 min left in epoch | motion 0.2826 way 1.1097 way_cls 1.6965 occ 0.1332 curv 0.0088 inter 0.2568 tl 0.1866 kl 0.9234
+  step 8000 (1336/1666) | 194 ms/step | ~1 min left in epoch | motion 0.2822 way 1.1033 way_cls 1.6968 occ 0.1338 curv 0.0091 inter 0.2587 tl 0.1884 kl 0.9252
+  step 8200 (1536/1666) | 194 ms/step | ~0 min left in epoch | motion 0.2807 way 1.1074 way_cls 1.7007 occ 0.1352 curv 0.0089 inter 0.2585 tl 0.1886 kl 0.9297
+[traj_v2] ep   5/30 train motion 0.2792 way 1.1061 way_cls 1.7019 occ 0.1347 curv 0.0088 inter 0.2603 tl 0.1886 kl 0.9312 | val 2.4748 ADE k1 4.961 k2 5.015 k3 4.858 (339s)
+  step 8400 (70/1666) | 193 ms/step | ~5 min left in epoch | motion 0.2852 way 1.1060 way_cls 1.7076 occ 0.1296 curv 0.0111 inter 0.2632 tl 0.2194 kl 0.9511
+  step 8600 (270/1666) | 194 ms/step | ~5 min left in epoch | motion 0.2753 way 1.1478 way_cls 1.8206 occ 0.1312 curv 0.0093 inter 0.2830 tl 0.2043 kl 0.9563
+  step 8800 (470/1666) | 194 ms/step | ~4 min left in epoch | motion 0.2744 way 1.1044 way_cls 1.8113 occ 0.1326 curv 0.0091 inter 0.2782 tl 0.1959 kl 0.9851
+  step 9000 (670/1666) | 193 ms/step | ~3 min left in epoch | motion 0.2759 way 1.0867 way_cls 1.7848 occ 0.1348 curv 0.0086 inter 0.2639 tl 0.1884 kl 1.0025
+  step 9200 (870/1666) | 193 ms/step | ~3 min left in epoch | motion 0.2644 way 1.0563 way_cls 1.7760 occ 0.1331 curv 0.0080 inter 0.2567 tl 0.1851 kl 1.0083
+  step 9400 (1070/1666) | 193 ms/step | ~2 min left in epoch | motion 0.2621 way 1.0351 way_cls 1.7656 occ 0.1322 curv 0.0079 inter 0.2606 tl 0.1848 kl 1.0061
+  step 9600 (1270/1666) | 193 ms/step | ~1 min left in epoch | motion 0.2627 way 1.0369 way_cls 1.7698 occ 0.1335 curv 0.0078 inter 0.2591 tl 0.1818 kl 1.0045
+  step 9800 (1470/1666) | 193 ms/step | ~1 min left in epoch | motion 0.2585 way 1.0368 way_cls 1.7682 occ 0.1338 curv 0.0077 inter 0.2567 tl 0.1812 kl 1.0051
+[traj_v2] ep   6/30 train motion 0.2569 way 1.0342 way_cls 1.7725 occ 0.1331 curv 0.0078 inter 0.2565 tl 0.1790 kl 1.0047 | val 2.8520 ADE k1 4.731 k2 3.822 k3 4.570 (338s)
+  step 10000 (4/1666) | 220 ms/step | ~6 min left in epoch | motion 0.1832 way 0.8599 way_cls 1.6658 occ 0.1344 curv 0.0081 inter 0.2709 tl 0.1529 kl 1.0607
+  step 10200 (204/1666) | 194 ms/step | ~5 min left in epoch | motion 0.2265 way 0.9325 way_cls 1.6991 occ 0.1293 curv 0.0061 inter 0.2378 tl 0.1723 kl 0.9903
+  step 10400 (404/1666) | 194 ms/step | ~4 min left in epoch | motion 0.2341 way 0.9524 way_cls 1.7213 occ 0.1307 curv 0.0066 inter 0.2430 tl 0.1633 kl 0.9880
+  step 10600 (604/1666) | 194 ms/step | ~3 min left in epoch | motion 0.2431 way 0.9547 way_cls 1.7387 occ 0.1328 curv 0.0067 inter 0.2467 tl 0.1612 kl 1.0000
+  step 10800 (804/1666) | 194 ms/step | ~3 min left in epoch | motion 0.2392 way 0.9620 way_cls 1.7418 occ 0.1318 curv 0.0066 inter 0.2475 tl 0.1629 kl 0.9984
+  step 11000 (1004/1666) | 194 ms/step | ~2 min left in epoch | motion 0.2396 way 0.9626 way_cls 1.7426 occ 0.1311 curv 0.0073 inter 0.2477 tl 0.1666 kl 1.0030
+  step 11200 (1204/1666) | 194 ms/step | ~1 min left in epoch | motion 0.2356 way 0.9574 way_cls 1.7438 occ 0.1308 curv 0.0073 inter 0.2477 tl 0.1644 kl 1.0079
+  step 11400 (1404/1666) | 194 ms/step | ~1 min left in epoch | motion 0.2329 way 0.9531 way_cls 1.7415 occ 0.1302 curv 0.0074 inter 0.2479 tl 0.1655 kl 1.0078
+  step 11600 (1604/1666) | 194 ms/step | ~0 min left in epoch | motion 0.2302 way 0.9504 way_cls 1.7400 occ 0.1299 curv 0.0073 inter 0.2486 tl 0.1658 kl 1.0088
+[traj_v2] ep   7/30 train motion 0.2321 way 0.9547 way_cls 1.7476 occ 0.1306 curv 0.0073 inter 0.2485 tl 0.1644 kl 1.0099 | val 2.8024 ADE k1 5.130 k2 4.557 k3 4.224 (338s)
+  step 11800 (138/1666) | 194 ms/step | ~5 min left in epoch | motion 0.2176 way 0.9074 way_cls 1.7790 occ 0.1241 curv 0.0083 inter 0.2640 tl 0.1944 kl 1.0398
+  step 12000 (338/1666) | 194 ms/step | ~4 min left in epoch | motion 0.2162 way 0.8887 way_cls 1.7522 occ 0.1268 curv 0.0077 inter 0.2502 tl 0.1623 kl 1.0582
+  step 12200 (538/1666) | 194 ms/step | ~4 min left in epoch | motion 0.2160 way 0.8879 way_cls 1.7638 occ 0.1254 curv 0.0071 inter 0.2469 tl 0.1611 kl 1.0667
+  step 12400 (738/1666) | 194 ms/step | ~3 min left in epoch | motion 0.2182 way 0.8913 way_cls 1.7607 occ 0.1267 curv 0.0071 inter 0.2457 tl 0.1615 kl 1.0701
+  step 12600 (938/1666) | 194 ms/step | ~2 min left in epoch | motion 0.2242 way 0.9040 way_cls 1.7650 occ 0.1260 curv 0.0071 inter 0.2467 tl 0.1618 kl 1.0648
+  step 12800 (1138/1666) | 194 ms/step | ~2 min left in epoch | motion 0.2210 way 0.9015 way_cls 1.7594 occ 0.1264 curv 0.0068 inter 0.2448 tl 0.1597 kl 1.0618
+  step 13000 (1338/1666) | 193 ms/step | ~1 min left in epoch | motion 0.2228 way 0.8959 way_cls 1.7646 occ 0.1261 curv 0.0067 inter 0.2461 tl 0.1601 kl 1.0658
+  step 13200 (1538/1666) | 193 ms/step | ~0 min left in epoch | motion 0.2195 way 0.8933 way_cls 1.7684 occ 0.1268 curv 0.0067 inter 0.2476 tl 0.1606 kl 1.0686
+[traj_v2] ep   8/30 train motion 0.2178 way 0.8848 way_cls 1.7649 occ 0.1279 curv 0.0067 inter 0.2478 tl 0.1605 kl 1.0703 | val 2.4706 ADE k1 4.185 k2 3.420 k3 3.370 (337s)
+  step 13400 (72/1666) | 195 ms/step | ~5 min left in epoch | motion 0.2057 way 0.8449 way_cls 1.7829 occ 0.1335 curv 0.0056 inter 0.2322 tl 0.1644 kl 1.0835
+  step 13600 (272/1666) | 194 ms/step | ~5 min left in epoch | motion 0.1993 way 0.8252 way_cls 1.7755 occ 0.1329 curv 0.0058 inter 0.2286 tl 0.1479 kl 1.0669
+  step 13800 (472/1666) | 194 ms/step | ~4 min left in epoch | motion 0.2035 way 0.8507 way_cls 1.7491 occ 0.1311 curv 0.0062 inter 0.2388 tl 0.1506 kl 1.0759
+  step 14000 (672/1666) | 194 ms/step | ~3 min left in epoch | motion 0.2074 way 0.8416 way_cls 1.7451 occ 0.1316 curv 0.0062 inter 0.2394 tl 0.1512 kl 1.0810
+  step 14200 (872/1666) | 194 ms/step | ~3 min left in epoch | motion 0.2078 way 0.8354 way_cls 1.7539 occ 0.1305 curv 0.0061 inter 0.2393 tl 0.1503 kl 1.0919
+  step 14400 (1072/1666) | 194 ms/step | ~2 min left in epoch | motion 0.2018 way 0.8188 way_cls 1.7508 occ 0.1302 curv 0.0062 inter 0.2409 tl 0.1467 kl 1.0971
+  step 14600 (1272/1666) | 194 ms/step | ~1 min left in epoch | motion 0.2007 way 0.8228 way_cls 1.7489 occ 0.1294 curv 0.0064 inter 0.2405 tl 0.1456 kl 1.1034
+  step 14800 (1472/1666) | 194 ms/step | ~1 min left in epoch | motion 0.2044 way 0.8220 way_cls 1.7564 occ 0.1294 curv 0.0065 inter 0.2399 tl 0.1440 kl 1.1088
+[traj_v2] ep   9/30 train motion 0.2025 way 0.8229 way_cls 1.7576 occ 0.1285 curv 0.0065 inter 0.2417 tl 0.1437 kl 1.1139 | val 3.8831 ADE k1 6.061 k2 6.266 k3 5.231 (339s)
+  step 15000 (6/1666) | 205 ms/step | ~6 min left in epoch | motion 0.3514 way 1.1211 way_cls 1.6962 occ 0.1308 curv 0.0061 inter 0.1872 tl 0.2469 kl 0.9896
+  step 15200 (206/1666) | 194 ms/step | ~5 min left in epoch | motion 0.1869 way 0.8315 way_cls 1.7154 occ 0.1250 curv 0.0057 inter 0.2419 tl 0.1601 kl 1.1367
+  step 15400 (406/1666) | 194 ms/step | ~4 min left in epoch | motion 0.2004 way 0.8371 way_cls 1.7287 occ 0.1210 curv 0.0058 inter 0.2370 tl 0.1555 kl 1.1331
+  step 15600 (606/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1929 way 0.8155 way_cls 1.7339 occ 0.1226 curv 0.0057 inter 0.2428 tl 0.1557 kl 1.1529
+  step 15800 (806/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1888 way 0.8084 way_cls 1.7334 occ 0.1204 curv 0.0059 inter 0.2451 tl 0.1484 kl 1.1610
+  step 16000 (1006/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1862 way 0.8072 way_cls 1.7401 occ 0.1209 curv 0.0060 inter 0.2440 tl 0.1493 kl 1.1713
+  step 16200 (1206/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1880 way 0.8074 way_cls 1.7447 occ 0.1203 curv 0.0060 inter 0.2432 tl 0.1467 kl 1.1817
+  step 16400 (1406/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1850 way 0.8045 way_cls 1.7473 occ 0.1207 curv 0.0060 inter 0.2408 tl 0.1452 kl 1.1882
+  step 16600 (1606/1666) | 194 ms/step | ~0 min left in epoch | motion 0.1852 way 0.8057 way_cls 1.7464 occ 0.1211 curv 0.0061 inter 0.2413 tl 0.1438 kl 1.1901
+[traj_v2] ep  10/30 train motion 0.1855 way 0.8071 way_cls 1.7478 occ 0.1212 curv 0.0061 inter 0.2408 tl 0.1438 kl 1.1930 | val 4.2312 ADE k1 6.060 k2 5.309 k3 5.136 (338s)
+  step 16800 (140/1666) | 195 ms/step | ~5 min left in epoch | motion 0.1655 way 0.7819 way_cls 1.7382 occ 0.1216 curv 0.0056 inter 0.2535 tl 0.1554 kl 1.2286
+  step 17000 (340/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1631 way 0.7475 way_cls 1.7596 occ 0.1222 curv 0.0056 inter 0.2439 tl 0.1568 kl 1.2375
+  step 17200 (540/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1586 way 0.7430 way_cls 1.7498 occ 0.1211 curv 0.0059 inter 0.2420 tl 0.1524 kl 1.2437
+  step 17400 (740/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1595 way 0.7489 way_cls 1.7442 occ 0.1227 curv 0.0059 inter 0.2424 tl 0.1500 kl 1.2477
+  step 17600 (940/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1630 way 0.7576 way_cls 1.7419 occ 0.1221 curv 0.0061 inter 0.2412 tl 0.1485 kl 1.2544
+  step 17800 (1140/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1691 way 0.7619 way_cls 1.7457 occ 0.1219 curv 0.0061 inter 0.2416 tl 0.1483 kl 1.2590
+  step 18000 (1340/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1692 way 0.7602 way_cls 1.7455 occ 0.1215 curv 0.0062 inter 0.2427 tl 0.1494 kl 1.2639
+  step 18200 (1540/1666) | 194 ms/step | ~0 min left in epoch | motion 0.1677 way 0.7515 way_cls 1.7453 occ 0.1219 curv 0.0061 inter 0.2419 tl 0.1479 kl 1.2669
+[traj_v2] ep  11/30 train motion 0.1686 way 0.7522 way_cls 1.7447 occ 0.1221 curv 0.0061 inter 0.2427 tl 0.1474 kl 1.2683 | val 4.1845 ADE k1 5.867 k2 5.643 k3 5.915 (338s)
+  step 18400 (74/1666) | 195 ms/step | ~5 min left in epoch | motion 0.1737 way 0.7471 way_cls 1.7023 occ 0.1225 curv 0.0049 inter 0.2127 tl 0.1296 kl 1.2981
+  step 18600 (274/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1586 way 0.7343 way_cls 1.7317 occ 0.1334 curv 0.0052 inter 0.2217 tl 0.1348 kl 1.2931
+  step 18800 (474/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1554 way 0.7302 way_cls 1.7283 occ 0.1286 curv 0.0051 inter 0.2205 tl 0.1320 kl 1.2948
+  step 19000 (674/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1611 way 0.7319 way_cls 1.7298 occ 0.1259 curv 0.0051 inter 0.2267 tl 0.1293 kl 1.3059
+  step 19200 (874/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1589 way 0.7290 way_cls 1.7286 occ 0.1248 curv 0.0055 inter 0.2335 tl 0.1350 kl 1.3195
+  step 19400 (1074/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1580 way 0.7285 way_cls 1.7296 occ 0.1250 curv 0.0056 inter 0.2308 tl 0.1347 kl 1.3212
+  step 19600 (1274/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1588 way 0.7303 way_cls 1.7326 occ 0.1240 curv 0.0056 inter 0.2344 tl 0.1350 kl 1.3274
+  step 19800 (1474/1666) | 195 ms/step | ~1 min left in epoch | motion 0.1595 way 0.7287 way_cls 1.7361 occ 0.1238 curv 0.0056 inter 0.2339 tl 0.1375 kl 1.3257
+[traj_v2] ep  12/30 train motion 0.1607 way 0.7256 way_cls 1.7359 occ 0.1238 curv 0.0055 inter 0.2310 tl 0.1365 kl 1.3246 | val 3.3543 ADE k1 5.075 k2 4.956 k3 5.120 (339s)
+  step 20000 (8/1666) | 206 ms/step | ~6 min left in epoch | motion 0.1406 way 0.6107 way_cls 1.6724 occ 0.1054 curv 0.0041 inter 0.2504 tl 0.0555 kl 1.2995
+  step 20200 (208/1666) | 195 ms/step | ~5 min left in epoch | motion 0.1542 way 0.7089 way_cls 1.7319 occ 0.1172 curv 0.0053 inter 0.2408 tl 0.1347 kl 1.3671
+  step 20400 (408/1666) | 195 ms/step | ~4 min left in epoch | motion 0.1585 way 0.7086 way_cls 1.7336 occ 0.1156 curv 0.0054 inter 0.2352 tl 0.1292 kl 1.3667
+  step 20600 (608/1666) | 195 ms/step | ~3 min left in epoch | motion 0.1632 way 0.7191 way_cls 1.7360 occ 0.1167 curv 0.0058 inter 0.2340 tl 0.1343 kl 1.3552
+  step 20800 (808/1666) | 195 ms/step | ~3 min left in epoch | motion 0.1575 way 0.7152 way_cls 1.7312 occ 0.1177 curv 0.0058 inter 0.2324 tl 0.1366 kl 1.3545
+  step 21000 (1008/1666) | 195 ms/step | ~2 min left in epoch | motion 0.1524 way 0.7093 way_cls 1.7248 occ 0.1189 curv 0.0057 inter 0.2266 tl 0.1361 kl 1.3567
+  step 21200 (1208/1666) | 195 ms/step | ~1 min left in epoch | motion 0.1509 way 0.7067 way_cls 1.7267 occ 0.1187 curv 0.0058 inter 0.2281 tl 0.1364 kl 1.3675
+  step 21400 (1408/1666) | 195 ms/step | ~1 min left in epoch | motion 0.1516 way 0.7036 way_cls 1.7261 occ 0.1199 curv 0.0058 inter 0.2304 tl 0.1376 kl 1.3787
+  step 21600 (1608/1666) | 195 ms/step | ~0 min left in epoch | motion 0.1493 way 0.7038 way_cls 1.7227 occ 0.1191 curv 0.0059 inter 0.2316 tl 0.1411 kl 1.3795
+[traj_v2] ep  13/30 train motion 0.1496 way 0.7049 way_cls 1.7231 occ 0.1188 curv 0.0059 inter 0.2328 tl 0.1399 kl 1.3796 | val 3.1705 ADE k1 4.710 k2 4.351 k3 4.603 (340s)
+  step 21800 (142/1666) | 195 ms/step | ~5 min left in epoch | motion 0.1357 way 0.6868 way_cls 1.7065 occ 0.1172 curv 0.0057 inter 0.2237 tl 0.1397 kl 1.4275
+  step 22000 (342/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1359 way 0.6788 way_cls 1.7091 occ 0.1212 curv 0.0050 inter 0.2161 tl 0.1365 kl 1.4281
+  step 22200 (542/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1408 way 0.6849 way_cls 1.7218 occ 0.1207 curv 0.0051 inter 0.2223 tl 0.1412 kl 1.4247
+  step 22400 (742/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1444 way 0.6886 way_cls 1.7169 occ 0.1205 curv 0.0052 inter 0.2222 tl 0.1319 kl 1.4225
+  step 22600 (942/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1454 way 0.6876 way_cls 1.7162 occ 0.1212 curv 0.0056 inter 0.2244 tl 0.1347 kl 1.4250
+  step 22800 (1142/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1434 way 0.6808 way_cls 1.7179 occ 0.1216 curv 0.0056 inter 0.2281 tl 0.1391 kl 1.4219
+  step 23000 (1342/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1435 way 0.6796 way_cls 1.7172 occ 0.1207 curv 0.0056 inter 0.2259 tl 0.1380 kl 1.4227
+  step 23200 (1542/1666) | 194 ms/step | ~0 min left in epoch | motion 0.1447 way 0.6858 way_cls 1.7186 occ 0.1203 curv 0.0057 inter 0.2286 tl 0.1386 kl 1.4292
+[traj_v2] ep  14/30 train motion 0.1439 way 0.6835 way_cls 1.7189 occ 0.1195 curv 0.0057 inter 0.2285 tl 0.1374 kl 1.4290 | val 2.9368 ADE k1 4.052 k2 4.076 k3 3.095 (338s)
+  step 23400 (76/1666) | 194 ms/step | ~5 min left in epoch | motion 0.1232 way 0.6720 way_cls 1.7117 occ 0.1259 curv 0.0063 inter 0.2345 tl 0.1390 kl 1.4786
+  step 23600 (276/1666) | 193 ms/step | ~4 min left in epoch | motion 0.1417 way 0.6800 way_cls 1.6915 occ 0.1190 curv 0.0065 inter 0.2404 tl 0.1416 kl 1.4330
+  step 23800 (476/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1440 way 0.6844 way_cls 1.6975 occ 0.1192 curv 0.0062 inter 0.2346 tl 0.1383 kl 1.4289
+  step 24000 (676/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1414 way 0.6865 way_cls 1.6975 occ 0.1193 curv 0.0063 inter 0.2323 tl 0.1366 kl 1.4283
+  step 24200 (876/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1437 way 0.6865 way_cls 1.7018 occ 0.1188 curv 0.0062 inter 0.2322 tl 0.1352 kl 1.4409
+  step 24400 (1076/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1423 way 0.6811 way_cls 1.6979 occ 0.1181 curv 0.0059 inter 0.2283 tl 0.1316 kl 1.4410
+  step 24600 (1276/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1397 way 0.6732 way_cls 1.7006 occ 0.1178 curv 0.0058 inter 0.2259 tl 0.1334 kl 1.4460
+  step 24800 (1476/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1376 way 0.6682 way_cls 1.7051 occ 0.1169 curv 0.0057 inter 0.2245 tl 0.1343 kl 1.4470
+[traj_v2] ep  15/30 train motion 0.1365 way 0.6697 way_cls 1.7057 occ 0.1171 curv 0.0057 inter 0.2243 tl 0.1327 kl 1.4480 | val 2.7037 ADE k1 4.614 k2 4.111 k3 4.218 (338s)
+  step 25000 (10/1666) | 200 ms/step | ~6 min left in epoch | motion 0.1036 way 0.6221 way_cls 1.7954 occ 0.1230 curv 0.0064 inter 0.2230 tl 0.1862 kl 1.5277
+  step 25200 (210/1666) | 193 ms/step | ~5 min left in epoch | motion 0.1362 way 0.6458 way_cls 1.7157 occ 0.1171 curv 0.0055 inter 0.2148 tl 0.1261 kl 1.4926
+  step 25400 (410/1666) | 193 ms/step | ~4 min left in epoch | motion 0.1335 way 0.6558 way_cls 1.7092 occ 0.1233 curv 0.0054 inter 0.2125 tl 0.1222 kl 1.4926
+  step 25600 (610/1666) | 193 ms/step | ~3 min left in epoch | motion 0.1315 way 0.6494 way_cls 1.7079 occ 0.1213 curv 0.0053 inter 0.2200 tl 0.1211 kl 1.4836
+  step 25800 (810/1666) | 193 ms/step | ~3 min left in epoch | motion 0.1289 way 0.6496 way_cls 1.7000 occ 0.1206 curv 0.0052 inter 0.2249 tl 0.1272 kl 1.4824
+  step 26000 (1010/1666) | 193 ms/step | ~2 min left in epoch | motion 0.1281 way 0.6489 way_cls 1.7005 occ 0.1187 curv 0.0053 inter 0.2239 tl 0.1276 kl 1.4856
+  step 26200 (1210/1666) | 193 ms/step | ~1 min left in epoch | motion 0.1297 way 0.6514 way_cls 1.6995 occ 0.1188 curv 0.0054 inter 0.2270 tl 0.1300 kl 1.4958
+  step 26400 (1410/1666) | 193 ms/step | ~1 min left in epoch | motion 0.1289 way 0.6504 way_cls 1.6986 occ 0.1184 curv 0.0056 inter 0.2279 tl 0.1307 kl 1.4994
+  step 26600 (1610/1666) | 193 ms/step | ~0 min left in epoch | motion 0.1275 way 0.6443 way_cls 1.6994 occ 0.1184 curv 0.0056 inter 0.2282 tl 0.1314 kl 1.4996
+[traj_v2] ep  16/30 train motion 0.1274 way 0.6443 way_cls 1.7021 occ 0.1183 curv 0.0056 inter 0.2284 tl 0.1307 kl 1.4996 | val 3.1993 ADE k1 4.801 k2 4.644 k3 4.528 (337s)
+  step 26800 (144/1666) | 192 ms/step | ~5 min left in epoch | motion 0.1125 way 0.5945 way_cls 1.6750 occ 0.1224 curv 0.0054 inter 0.2175 tl 0.1210 kl 1.5184
+  step 27000 (344/1666) | 193 ms/step | ~4 min left in epoch | motion 0.1262 way 0.6232 way_cls 1.6855 occ 0.1192 curv 0.0055 inter 0.2249 tl 0.1308 kl 1.5225
+  step 27200 (544/1666) | 193 ms/step | ~4 min left in epoch | motion 0.1244 way 0.6285 way_cls 1.6739 occ 0.1213 curv 0.0054 inter 0.2242 tl 0.1233 kl 1.5197
+  step 27400 (744/1666) | 193 ms/step | ~3 min left in epoch | motion 0.1267 way 0.6413 way_cls 1.6853 occ 0.1196 curv 0.0056 inter 0.2281 tl 0.1211 kl 1.5283
+  step 27600 (944/1666) | 193 ms/step | ~2 min left in epoch | motion 0.1236 way 0.6344 way_cls 1.6824 occ 0.1188 curv 0.0056 inter 0.2269 tl 0.1283 kl 1.5388
+  step 27800 (1144/1666) | 193 ms/step | ~2 min left in epoch | motion 0.1237 way 0.6329 way_cls 1.6901 occ 0.1195 curv 0.0056 inter 0.2254 tl 0.1289 kl 1.5413
+  step 28000 (1344/1666) | 193 ms/step | ~1 min left in epoch | motion 0.1232 way 0.6286 way_cls 1.6914 occ 0.1183 curv 0.0055 inter 0.2265 tl 0.1294 kl 1.5422
+  step 28200 (1544/1666) | 193 ms/step | ~0 min left in epoch | motion 0.1223 way 0.6254 way_cls 1.6937 occ 0.1181 curv 0.0054 inter 0.2241 tl 0.1266 kl 1.5399
+[traj_v2] ep  17/30 train motion 0.1213 way 0.6240 way_cls 1.6978 occ 0.1176 curv 0.0054 inter 0.2243 tl 0.1267 kl 1.5418 | val 2.9413 ADE k1 4.659 k2 3.490 k3 3.345 (337s)
+  step 28400 (78/1666) | 195 ms/step | ~5 min left in epoch | motion 0.1044 way 0.6031 way_cls 1.6801 occ 0.1111 curv 0.0056 inter 0.2125 tl 0.1593 kl 1.5631
+  step 28600 (278/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1131 way 0.6025 way_cls 1.6980 occ 0.1185 curv 0.0057 inter 0.2202 tl 0.1163 kl 1.5666
+  step 28800 (478/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1123 way 0.6104 way_cls 1.7007 occ 0.1156 curv 0.0058 inter 0.2262 tl 0.1258 kl 1.5805
+  step 29000 (678/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1170 way 0.6180 way_cls 1.6995 occ 0.1165 curv 0.0056 inter 0.2279 tl 0.1217 kl 1.5826
+  step 29200 (878/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1156 way 0.6101 way_cls 1.6987 occ 0.1162 curv 0.0055 inter 0.2268 tl 0.1210 kl 1.5826
+  step 29400 (1078/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1143 way 0.6036 way_cls 1.6940 occ 0.1164 curv 0.0054 inter 0.2235 tl 0.1199 kl 1.5861
+  step 29600 (1278/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1150 way 0.6042 way_cls 1.6973 occ 0.1166 curv 0.0054 inter 0.2205 tl 0.1186 kl 1.5850
+  step 29800 (1478/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1134 way 0.6005 way_cls 1.6985 occ 0.1161 curv 0.0053 inter 0.2203 tl 0.1209 kl 1.5872
+[traj_v2] ep  18/30 train motion 0.1119 way 0.5975 way_cls 1.6949 occ 0.1161 curv 0.0054 inter 0.2229 tl 0.1220 kl 1.5878 | val 2.9733 ADE k1 3.940 k2 3.782 k3 3.549 (338s)
+  step 30000 (12/1666) | 198 ms/step | ~5 min left in epoch | motion 0.1956 way 0.7506 way_cls 1.7008 occ 0.1110 curv 0.0075 inter 0.2340 tl 0.1118 kl 1.6450
+  step 30200 (212/1666) | 194 ms/step | ~5 min left in epoch | motion 0.0990 way 0.5785 way_cls 1.6805 occ 0.1207 curv 0.0059 inter 0.2138 tl 0.1213 kl 1.6318
+  step 30400 (412/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1004 way 0.5831 way_cls 1.6747 occ 0.1143 curv 0.0062 inter 0.2223 tl 0.1271 kl 1.6389
+  step 30600 (612/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1039 way 0.5967 way_cls 1.6798 occ 0.1147 curv 0.0061 inter 0.2255 tl 0.1311 kl 1.6379
+  step 30800 (812/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1039 way 0.5923 way_cls 1.6781 occ 0.1140 curv 0.0060 inter 0.2278 tl 0.1253 kl 1.6459
+  step 31000 (1012/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1020 way 0.5912 way_cls 1.6790 occ 0.1127 curv 0.0059 inter 0.2295 tl 0.1268 kl 1.6434
+  step 31200 (1212/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1005 way 0.5907 way_cls 1.6751 occ 0.1130 curv 0.0058 inter 0.2285 tl 0.1262 kl 1.6392
+  step 31400 (1412/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1001 way 0.5865 way_cls 1.6749 occ 0.1126 curv 0.0057 inter 0.2276 tl 0.1264 kl 1.6427
+  step 31600 (1612/1666) | 194 ms/step | ~0 min left in epoch | motion 0.0998 way 0.5827 way_cls 1.6748 occ 0.1125 curv 0.0056 inter 0.2251 tl 0.1254 kl 1.6439
+[traj_v2] ep  19/30 train motion 0.1001 way 0.5826 way_cls 1.6755 occ 0.1124 curv 0.0056 inter 0.2245 tl 0.1246 kl 1.6440 | val 1.5723 ADE k1 3.606 k2 2.790 k3 2.830 (338s)  *best*
+  step 31800 (146/1666) | 194 ms/step | ~5 min left in epoch | motion 0.0999 way 0.5841 way_cls 1.6657 occ 0.1128 curv 0.0059 inter 0.2177 tl 0.1240 kl 1.6490
+  step 32000 (346/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1024 way 0.5791 way_cls 1.6703 occ 0.1129 curv 0.0056 inter 0.2151 tl 0.1166 kl 1.6735
+  step 32200 (546/1666) | 194 ms/step | ~4 min left in epoch | motion 0.1047 way 0.5766 way_cls 1.6780 occ 0.1124 curv 0.0056 inter 0.2228 tl 0.1142 kl 1.6824
+  step 32400 (746/1666) | 194 ms/step | ~3 min left in epoch | motion 0.1036 way 0.5735 way_cls 1.6744 occ 0.1103 curv 0.0054 inter 0.2213 tl 0.1119 kl 1.6859
+  step 32600 (946/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1022 way 0.5748 way_cls 1.6690 occ 0.1115 curv 0.0056 inter 0.2199 tl 0.1138 kl 1.6918
+  step 32800 (1146/1666) | 194 ms/step | ~2 min left in epoch | motion 0.1016 way 0.5736 way_cls 1.6721 occ 0.1105 curv 0.0055 inter 0.2225 tl 0.1140 kl 1.6997
+  step 33000 (1346/1666) | 194 ms/step | ~1 min left in epoch | motion 0.1005 way 0.5745 way_cls 1.6752 occ 0.1116 curv 0.0054 inter 0.2225 tl 0.1148 kl 1.7061
+  step 33200 (1546/1666) | 194 ms/step | ~0 min left in epoch | motion 0.1004 way 0.5734 way_cls 1.6766 occ 0.1124 curv 0.0054 inter 0.2212 tl 0.1145 kl 1.7115
+[traj_v2] ep  20/30 train motion 0.1000 way 0.5704 way_cls 1.6775 occ 0.1126 curv 0.0054 inter 0.2198 tl 0.1137 kl 1.7137 | val 2.3914 ADE k1 3.643 k2 3.278 k3 3.233 (338s)
+  step 33400 (80/1666) | 195 ms/step | ~5 min left in epoch | motion 0.1067 way 0.5750 way_cls 1.6848 occ 0.1104 curv 0.0053 inter 0.2166 tl 0.1201 kl 1.7164
+  step 33600 (280/1666) | 194 ms/step | ~4 min left in epoch | motion 0.0978 way 0.5638 way_cls 1.6594 occ 0.1095 curv 0.0058 inter 0.2089 tl 0.1323 kl 1.7420
+  step 33800 (480/1666) | 194 ms/step | ~4 min left in epoch | motion 0.0984 way 0.5682 way_cls 1.6661 occ 0.1130 curv 0.0057 inter 0.2123 tl 0.1222 kl 1.7471
+  step 34000 (680/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0982 way 0.5646 way_cls 1.6689 occ 0.1104 curv 0.0055 inter 0.2133 tl 0.1182 kl 1.7475
+  step 34200 (880/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0988 way 0.5605 way_cls 1.6615 occ 0.1099 curv 0.0057 inter 0.2145 tl 0.1198 kl 1.7567
+  step 34400 (1080/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0982 way 0.5634 way_cls 1.6676 occ 0.1116 curv 0.0056 inter 0.2136 tl 0.1201 kl 1.7582
+  step 34600 (1280/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0961 way 0.5597 way_cls 1.6709 occ 0.1121 curv 0.0056 inter 0.2141 tl 0.1227 kl 1.7581
+  step 34800 (1480/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0956 way 0.5552 way_cls 1.6733 occ 0.1122 curv 0.0054 inter 0.2116 tl 0.1211 kl 1.7617
+[traj_v2] ep  21/30 train motion 0.0946 way 0.5535 way_cls 1.6769 occ 0.1119 curv 0.0054 inter 0.2140 tl 0.1217 kl 1.7608 | val 2.5372 ADE k1 4.229 k2 3.644 k3 3.540 (339s)
+  step 35000 (14/1666) | 198 ms/step | ~5 min left in epoch | motion 0.1006 way 0.5126 way_cls 1.7255 occ 0.1381 curv 0.0037 inter 0.2277 tl 0.1364 kl 1.7115
+  step 35200 (214/1666) | 195 ms/step | ~5 min left in epoch | motion 0.0929 way 0.5509 way_cls 1.6708 occ 0.1176 curv 0.0047 inter 0.2138 tl 0.1190 kl 1.7457
+  step 35400 (414/1666) | 195 ms/step | ~4 min left in epoch | motion 0.0902 way 0.5503 way_cls 1.6693 occ 0.1160 curv 0.0048 inter 0.2129 tl 0.1152 kl 1.7613
+  step 35600 (614/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0884 way 0.5419 way_cls 1.6615 occ 0.1137 curv 0.0050 inter 0.2102 tl 0.1126 kl 1.7688
+  step 35800 (814/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0887 way 0.5397 way_cls 1.6581 occ 0.1135 curv 0.0052 inter 0.2140 tl 0.1111 kl 1.7692
+  step 36000 (1014/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0910 way 0.5430 way_cls 1.6631 occ 0.1150 curv 0.0051 inter 0.2136 tl 0.1135 kl 1.7674
+  step 36200 (1214/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0911 way 0.5411 way_cls 1.6622 occ 0.1143 curv 0.0052 inter 0.2126 tl 0.1129 kl 1.7713
+  step 36400 (1414/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0909 way 0.5407 way_cls 1.6624 occ 0.1150 curv 0.0052 inter 0.2127 tl 0.1151 kl 1.7747
+  step 36600 (1614/1666) | 194 ms/step | ~0 min left in epoch | motion 0.0913 way 0.5420 way_cls 1.6622 occ 0.1147 curv 0.0052 inter 0.2126 tl 0.1147 kl 1.7725
+[traj_v2] ep  22/30 train motion 0.0909 way 0.5402 way_cls 1.6631 occ 0.1149 curv 0.0052 inter 0.2127 tl 0.1148 kl 1.7735 | val 2.4145 ADE k1 3.741 k2 3.287 k3 3.116 (339s)
+  step 36800 (148/1666) | 195 ms/step | ~5 min left in epoch | motion 0.0878 way 0.5379 way_cls 1.6866 occ 0.1120 curv 0.0045 inter 0.1929 tl 0.1210 kl 1.7920
+  step 37000 (348/1666) | 195 ms/step | ~4 min left in epoch | motion 0.0860 way 0.5230 way_cls 1.6757 occ 0.1114 curv 0.0051 inter 0.2065 tl 0.1116 kl 1.7889
+  step 37200 (548/1666) | 194 ms/step | ~4 min left in epoch | motion 0.0865 way 0.5222 way_cls 1.6772 occ 0.1102 curv 0.0053 inter 0.2104 tl 0.1107 kl 1.7971
+  step 37400 (748/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0838 way 0.5206 way_cls 1.6740 occ 0.1110 curv 0.0053 inter 0.2064 tl 0.1118 kl 1.7999
+  step 37600 (948/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0829 way 0.5235 way_cls 1.6698 occ 0.1113 curv 0.0054 inter 0.2091 tl 0.1149 kl 1.7971
+  step 37800 (1148/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0837 way 0.5252 way_cls 1.6693 occ 0.1104 curv 0.0054 inter 0.2146 tl 0.1140 kl 1.7976
+  step 38000 (1348/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0829 way 0.5233 way_cls 1.6683 occ 0.1097 curv 0.0053 inter 0.2138 tl 0.1150 kl 1.8046
+  step 38200 (1548/1666) | 194 ms/step | ~0 min left in epoch | motion 0.0834 way 0.5214 way_cls 1.6707 occ 0.1102 curv 0.0052 inter 0.2135 tl 0.1168 kl 1.8088
+[traj_v2] ep  23/30 train motion 0.0834 way 0.5213 way_cls 1.6695 occ 0.1096 curv 0.0052 inter 0.2139 tl 0.1164 kl 1.8066 | val 2.6029 ADE k1 3.281 k2 3.197 k3 3.046 (339s)
+  step 38400 (82/1666) | 195 ms/step | ~5 min left in epoch | motion 0.0766 way 0.5003 way_cls 1.6758 occ 0.1019 curv 0.0041 inter 0.1829 tl 0.0836 kl 1.8090
+  step 38600 (282/1666) | 195 ms/step | ~4 min left in epoch | motion 0.0849 way 0.5223 way_cls 1.6662 occ 0.1028 curv 0.0054 inter 0.2018 tl 0.1138 kl 1.7999
+  step 38800 (482/1666) | 194 ms/step | ~4 min left in epoch | motion 0.0814 way 0.5150 way_cls 1.6672 occ 0.1071 curv 0.0055 inter 0.2060 tl 0.1096 kl 1.8251
+  step 39000 (682/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0825 way 0.5129 way_cls 1.6677 occ 0.1102 curv 0.0053 inter 0.2083 tl 0.1120 kl 1.8178
+  step 39200 (882/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0816 way 0.5113 way_cls 1.6684 occ 0.1102 curv 0.0052 inter 0.2142 tl 0.1142 kl 1.8145
+  step 39400 (1082/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0818 way 0.5119 way_cls 1.6691 occ 0.1091 curv 0.0052 inter 0.2120 tl 0.1151 kl 1.8181
+  step 39600 (1282/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0817 way 0.5123 way_cls 1.6657 occ 0.1097 curv 0.0052 inter 0.2148 tl 0.1136 kl 1.8239
+  step 39800 (1482/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0815 way 0.5117 way_cls 1.6627 occ 0.1097 curv 0.0052 inter 0.2131 tl 0.1138 kl 1.8262
+[traj_v2] ep  24/30 train motion 0.0808 way 0.5119 way_cls 1.6658 occ 0.1092 curv 0.0052 inter 0.2136 tl 0.1152 kl 1.8292 | val 2.2497 ADE k1 3.434 k2 3.200 k3 3.215 (339s)
+  step 40000 (16/1666) | 200 ms/step | ~5 min left in epoch | motion 0.0886 way 0.4788 way_cls 1.6717 occ 0.1010 curv 0.0037 inter 0.2024 tl 0.1292 kl 1.8870
+  step 40200 (216/1666) | 193 ms/step | ~5 min left in epoch | motion 0.0790 way 0.4939 way_cls 1.6555 occ 0.1084 curv 0.0046 inter 0.2216 tl 0.1171 kl 1.8670
+  step 40400 (416/1666) | 194 ms/step | ~4 min left in epoch | motion 0.0779 way 0.5018 way_cls 1.6572 occ 0.1159 curv 0.0052 inter 0.2162 tl 0.1066 kl 1.8593
+  step 40600 (616/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0767 way 0.5040 way_cls 1.6604 occ 0.1132 curv 0.0050 inter 0.2135 tl 0.1113 kl 1.8449
+  step 40800 (816/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0761 way 0.5044 way_cls 1.6563 occ 0.1128 curv 0.0049 inter 0.2113 tl 0.1115 kl 1.8456
+  step 41000 (1016/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0767 way 0.5052 way_cls 1.6567 occ 0.1129 curv 0.0050 inter 0.2112 tl 0.1100 kl 1.8524
+  step 41200 (1216/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0761 way 0.5035 way_cls 1.6533 occ 0.1131 curv 0.0050 inter 0.2112 tl 0.1090 kl 1.8559
+  step 41400 (1416/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0759 way 0.5025 way_cls 1.6529 occ 0.1124 curv 0.0051 inter 0.2128 tl 0.1116 kl 1.8609
+  step 41600 (1616/1666) | 194 ms/step | ~0 min left in epoch | motion 0.0757 way 0.5028 way_cls 1.6545 occ 0.1116 curv 0.0051 inter 0.2148 tl 0.1131 kl 1.8666
+[traj_v2] ep  25/30 train motion 0.0761 way 0.5024 way_cls 1.6547 occ 0.1112 curv 0.0051 inter 0.2142 tl 0.1132 kl 1.8658 | val 2.1272 ADE k1 3.410 k2 2.873 k3 2.730 (338s)
+  step 41800 (150/1666) | 194 ms/step | ~5 min left in epoch | motion 0.0719 way 0.5213 way_cls 1.6458 occ 0.1180 curv 0.0051 inter 0.2308 tl 0.1192 kl 1.8574
+  step 42000 (350/1666) | 194 ms/step | ~4 min left in epoch | motion 0.0776 way 0.5213 way_cls 1.6490 occ 0.1212 curv 0.0052 inter 0.2210 tl 0.1066 kl 1.8756
+  step 42200 (550/1666) | 194 ms/step | ~4 min left in epoch | motion 0.0797 way 0.5245 way_cls 1.6547 occ 0.1167 curv 0.0052 inter 0.2139 tl 0.1053 kl 1.8746
+  step 42400 (750/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0783 way 0.5161 way_cls 1.6563 occ 0.1161 curv 0.0053 inter 0.2157 tl 0.1061 kl 1.8826
+  step 42600 (950/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0764 way 0.5085 way_cls 1.6527 occ 0.1155 curv 0.0052 inter 0.2172 tl 0.1113 kl 1.8916
+  step 42800 (1150/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0760 way 0.5069 way_cls 1.6519 occ 0.1152 curv 0.0051 inter 0.2172 tl 0.1117 kl 1.8903
+  step 43000 (1350/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0763 way 0.5092 way_cls 1.6509 occ 0.1139 curv 0.0052 inter 0.2186 tl 0.1112 kl 1.8893
+  step 43200 (1550/1666) | 194 ms/step | ~0 min left in epoch | motion 0.0757 way 0.5058 way_cls 1.6493 occ 0.1135 curv 0.0053 inter 0.2196 tl 0.1120 kl 1.8910
+[traj_v2] ep  26/30 train motion 0.0753 way 0.5037 way_cls 1.6499 occ 0.1124 curv 0.0053 inter 0.2200 tl 0.1115 kl 1.8921 | val 2.1917 ADE k1 3.052 k2 2.943 k3 3.099 (338s)
+  step 43400 (84/1666) | 193 ms/step | ~5 min left in epoch | motion 0.0714 way 0.4764 way_cls 1.6967 occ 0.1086 curv 0.0049 inter 0.2332 tl 0.1090 kl 1.8912
+  step 43600 (284/1666) | 192 ms/step | ~4 min left in epoch | motion 0.0686 way 0.4635 way_cls 1.6564 occ 0.1132 curv 0.0052 inter 0.2077 tl 0.1167 kl 1.8855
+  step 43800 (484/1666) | 192 ms/step | ~4 min left in epoch | motion 0.0712 way 0.4732 way_cls 1.6528 occ 0.1109 curv 0.0054 inter 0.2116 tl 0.1156 kl 1.8912
+  step 44000 (684/1666) | 192 ms/step | ~3 min left in epoch | motion 0.0723 way 0.4809 way_cls 1.6526 occ 0.1115 curv 0.0054 inter 0.2148 tl 0.1144 kl 1.8901
+  step 44200 (884/1666) | 193 ms/step | ~3 min left in epoch | motion 0.0728 way 0.4843 way_cls 1.6556 occ 0.1120 curv 0.0053 inter 0.2138 tl 0.1165 kl 1.8882
+  step 44400 (1084/1666) | 193 ms/step | ~2 min left in epoch | motion 0.0725 way 0.4872 way_cls 1.6527 occ 0.1112 curv 0.0052 inter 0.2113 tl 0.1195 kl 1.8868
+  step 44600 (1284/1666) | 193 ms/step | ~1 min left in epoch | motion 0.0720 way 0.4887 way_cls 1.6548 occ 0.1101 curv 0.0053 inter 0.2125 tl 0.1185 kl 1.8895
+  step 44800 (1484/1666) | 193 ms/step | ~1 min left in epoch | motion 0.0718 way 0.4879 way_cls 1.6521 occ 0.1091 curv 0.0053 inter 0.2139 tl 0.1210 kl 1.8885
+[traj_v2] ep  27/30 train motion 0.0715 way 0.4877 way_cls 1.6511 occ 0.1092 curv 0.0052 inter 0.2124 tl 0.1188 kl 1.8899 | val 1.8819 ADE k1 2.924 k2 2.564 k3 2.405 (337s)
+  step 45000 (18/1666) | 197 ms/step | ~5 min left in epoch | motion 0.0565 way 0.4649 way_cls 1.6019 occ 0.0959 curv 0.0055 inter 0.1505 tl 0.0804 kl 1.8471
+  step 45200 (218/1666) | 194 ms/step | ~5 min left in epoch | motion 0.0730 way 0.4916 way_cls 1.6475 occ 0.1074 curv 0.0051 inter 0.2100 tl 0.1169 kl 1.8703
+  step 45400 (418/1666) | 194 ms/step | ~4 min left in epoch | motion 0.0705 way 0.4935 way_cls 1.6412 occ 0.1098 curv 0.0054 inter 0.2090 tl 0.1100 kl 1.8874
+  step 45600 (618/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0685 way 0.4900 way_cls 1.6370 occ 0.1077 curv 0.0054 inter 0.2172 tl 0.1152 kl 1.8899
+  step 45800 (818/1666) | 193 ms/step | ~3 min left in epoch | motion 0.0690 way 0.4891 way_cls 1.6455 occ 0.1077 curv 0.0054 inter 0.2183 tl 0.1110 kl 1.8922
+  step 46000 (1018/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0699 way 0.4870 way_cls 1.6494 occ 0.1076 curv 0.0053 inter 0.2162 tl 0.1101 kl 1.8921
+  step 46200 (1218/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0706 way 0.4856 way_cls 1.6513 occ 0.1081 curv 0.0052 inter 0.2158 tl 0.1110 kl 1.8931
+  step 46400 (1418/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0709 way 0.4872 way_cls 1.6540 occ 0.1081 curv 0.0052 inter 0.2166 tl 0.1129 kl 1.8941
+  step 46600 (1618/1666) | 194 ms/step | ~0 min left in epoch | motion 0.0709 way 0.4868 way_cls 1.6560 occ 0.1086 curv 0.0051 inter 0.2172 tl 0.1138 kl 1.8968
+[traj_v2] ep  28/30 train motion 0.0708 way 0.4891 way_cls 1.6560 occ 0.1083 curv 0.0051 inter 0.2168 tl 0.1138 kl 1.8973 | val 2.1875 ADE k1 3.354 k2 3.214 k3 3.135 (338s)
+  step 46800 (152/1666) | 193 ms/step | ~5 min left in epoch | motion 0.0684 way 0.4621 way_cls 1.6618 occ 0.1169 curv 0.0046 inter 0.1956 tl 0.1339 kl 1.9259
+  step 47000 (352/1666) | 194 ms/step | ~4 min left in epoch | motion 0.0703 way 0.4665 way_cls 1.6673 occ 0.1129 curv 0.0045 inter 0.1978 tl 0.1244 kl 1.9310
+  step 47200 (552/1666) | 194 ms/step | ~4 min left in epoch | motion 0.0694 way 0.4682 way_cls 1.6560 occ 0.1122 curv 0.0047 inter 0.2021 tl 0.1145 kl 1.9307
+  step 47400 (752/1666) | 194 ms/step | ~3 min left in epoch | motion 0.0686 way 0.4712 way_cls 1.6592 occ 0.1116 curv 0.0049 inter 0.2023 tl 0.1166 kl 1.9284
+  step 47600 (952/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0678 way 0.4739 way_cls 1.6580 occ 0.1106 curv 0.0049 inter 0.2037 tl 0.1129 kl 1.9229
+  step 47800 (1152/1666) | 193 ms/step | ~2 min left in epoch | motion 0.0674 way 0.4746 way_cls 1.6581 occ 0.1104 curv 0.0048 inter 0.2037 tl 0.1116 kl 1.9183
+  step 48000 (1352/1666) | 193 ms/step | ~1 min left in epoch | motion 0.0668 way 0.4727 way_cls 1.6565 occ 0.1110 curv 0.0049 inter 0.2049 tl 0.1101 kl 1.9206
+  step 48200 (1552/1666) | 193 ms/step | ~0 min left in epoch | motion 0.0666 way 0.4732 way_cls 1.6550 occ 0.1109 curv 0.0050 inter 0.2046 tl 0.1096 kl 1.9195
+[traj_v2] ep  29/30 train motion 0.0670 way 0.4747 way_cls 1.6559 occ 0.1105 curv 0.0051 inter 0.2073 tl 0.1095 kl 1.9198 | val 2.1038 ADE k1 3.123 k2 2.919 k3 2.787 (337s)
+  step 48400 (86/1666) | 194 ms/step | ~5 min left in epoch | motion 0.0683 way 0.5015 way_cls 1.6778 occ 0.1048 curv 0.0054 inter 0.2152 tl 0.1366 kl 1.9205
+  step 48600 (286/1666) | 193 ms/step | ~4 min left in epoch | motion 0.0663 way 0.4835 way_cls 1.6461 occ 0.1109 curv 0.0053 inter 0.2162 tl 0.1095 kl 1.9037
+  step 48800 (486/1666) | 193 ms/step | ~4 min left in epoch | motion 0.0686 way 0.4860 way_cls 1.6437 occ 0.1078 curv 0.0053 inter 0.2164 tl 0.1093 kl 1.8955
+  step 49000 (686/1666) | 193 ms/step | ~3 min left in epoch | motion 0.0673 way 0.4836 way_cls 1.6443 occ 0.1079 curv 0.0051 inter 0.2146 tl 0.1097 kl 1.8985
+  step 49200 (886/1666) | 193 ms/step | ~3 min left in epoch | motion 0.0681 way 0.4866 way_cls 1.6410 occ 0.1086 curv 0.0052 inter 0.2133 tl 0.1078 kl 1.9020
+  step 49400 (1086/1666) | 194 ms/step | ~2 min left in epoch | motion 0.0690 way 0.4841 way_cls 1.6389 occ 0.1103 curv 0.0051 inter 0.2135 tl 0.1074 kl 1.9054
+  step 49600 (1286/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0686 way 0.4830 way_cls 1.6380 occ 0.1103 curv 0.0051 inter 0.2104 tl 0.1084 kl 1.9087
+  step 49800 (1486/1666) | 194 ms/step | ~1 min left in epoch | motion 0.0684 way 0.4816 way_cls 1.6379 occ 0.1103 curv 0.0051 inter 0.2093 tl 0.1091 kl 1.9095
+[traj_v2] ep  30/30 train motion 0.0682 way 0.4825 way_cls 1.6396 occ 0.1106 curv 0.0050 inter 0.2101 tl 0.1080 kl 1.9101 | val 2.1307 ADE k1 3.197 k2 2.944 k3 2.881 (338s)
+traj stats from 4000 train clips: frame0 std 0.2906, rest std 0.3899
+[traj_v2] best epoch 19: val 1.5723, ADE k1 3.606 k2 2.790 k3 2.830
+DONE

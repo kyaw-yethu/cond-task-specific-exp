@@ -52,3 +52,5 @@ python conditioning/scripts/make_results.py --out-root out --proj .
 
 `configs/` holds the DiT configs, `tests/` the pytest suite, `docs/` the stage plans,
 the probe write-up and results.
+`runs/` records the MiniWan, probe and Traj-VAE v2 training runs: where the
+checkpoints are, the settings, the results and the logs.

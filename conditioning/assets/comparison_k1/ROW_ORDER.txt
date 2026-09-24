@@ -1,0 +1,16 @@
+Every panel carries its own burnt-in label, so this file is a cross-check
+rather than the only key.
+
+GIF: a 3-wide mosaic, reading left to right then down:
+  1. GT  ground truth
+  2. N  null context
+  3. T  Drive-JEPA task
+  4. V  Traj-VAE
+  5. D  Drive-JEPA domain
+  6. G  V-JEPA2 ViT-H
+
+Sheet: the same conditions as rows, top to bottom, all 16 frames left to right.
+
+Context frames: raw 0..0 are ground truth in every panel (k=1).
+Generated: raw 1..15.
+Sampling seed 0, 50 Euler steps, identical across panels.
