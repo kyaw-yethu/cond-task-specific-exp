@@ -1,14 +1,14 @@
 __pycache__/
 *.pyc
 .pytest_cache/
-.runtime/
+/.runtime/
 
 # data, checkpoints and outputs stay on the workspace
-data/
-cache/
-checkpoints/
-out/
-ckpt/
+/data/
+/cache/
+/checkpoints/
+/out/
+/ckpt/
 *.pt
 *.pth
 *.ckpt
