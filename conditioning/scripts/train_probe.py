@@ -118,6 +118,8 @@ def main():
                              "round-trip; the fix if the round-trip floor is poor")
     parser.add_argument("--vae-run", default="vae_50e24b")
     parser.add_argument("--vae-which", default="best")
+    parser.add_argument("--vae-dir", default=None,
+                        help="VAE run directory; defaults to <ckpt-dir>/<dataset>/<vae-run>")
     parser.add_argument("--workers", type=int, default=8)
     args = parser.parse_args()
     if not (args.dataset_dir and args.val_dataset_dir):
@@ -169,7 +171,7 @@ def main():
     print(f"PoseProbe {sum(p.numel() for p in model.parameters()):,} params")
 
     from f_toy.evaluation.checkpoints import load_vae
-    vae_dir = Path(args.ckpt_dir) / (args.dataset or "waymo") / args.vae_run
+    vae_dir = Path(args.vae_dir or Path(args.ckpt_dir) / (args.dataset or "waymo") / args.vae_run)
     vae = None
     if args.vae_aug > 0:
         vae, _ = load_vae(vae_dir, args.vae_which, device)
