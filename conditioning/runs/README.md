@@ -1,8 +1,11 @@
 # Runs
 
 Training records for the three checkpoints the experiments build on. Weights are not in
-the repository; they live on the yt-workspace node, and the two WOMD runs are also backed
-up on the volume.
+the repository. All three are in
+[Google Drive](https://drive.google.com/drive/folders/1kv8P2oRp-c6zdsQd_aaVNAz1QQPCfkAx?usp=sharing)
+as `miniwan/best.pt`, `probe/probe.pt` and `traj_vae/best.pt`, with the md5s below; the
+originals are on the yt-workspace node, and the two WOMD runs are also backed up on the
+volume.
 
 | run | checkpoint on the node | volume backup | md5 of the checkpoint used |
 |---|---|---|---|
