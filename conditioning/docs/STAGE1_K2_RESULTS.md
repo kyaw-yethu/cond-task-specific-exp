@@ -95,11 +95,11 @@ cannot be bootstrapped this way and is compared on its point estimate alone.
 Ground truth and every condition on the same clips, same seed, same context
 frames. Row order is in `out/comparison/ROW_ORDER.txt`.
 
-![sheet_clip1137_brisk](../assets/comparison/sheet_clip1137_brisk.png)
+![sheet_clip1137_brisk](../assets/comparison_k2/sheet_clip1137_brisk.png)
 
-![sheet_clip1565_turning](../assets/comparison/sheet_clip1565_turning.png)
+![sheet_clip1565_turning](../assets/comparison_k2/sheet_clip1565_turning.png)
 
-![sheet_clip3217_turning](../assets/comparison/sheet_clip3217_turning.png)
+![sheet_clip3217_turning](../assets/comparison_k2/sheet_clip3217_turning.png)
 
 All 6 sheets and 6 animated versions are in
 `out/comparison/`. The GIFs are the more useful of the two for judging
