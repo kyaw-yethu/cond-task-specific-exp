@@ -35,7 +35,7 @@ stride 10, which yields a single degenerate window for a 16-frame clip.
 
 ## 2. Parameterisation: per-step increments, composed
 
-![probe architecture, objective and splice](out/probe_design.png)
+![probe architecture, objective and splice](../assets/probe_design.png)
 
 Panel A is schematic; **panels B and C are the trained probe on a real test clip**
 (2967, a 43.7° turn, ADE 0.138 m), so the objective is shown on actual predictions
@@ -83,7 +83,7 @@ alone.
 
 ## 4. Training curves
 
-![probe training curves](out/probe_curve.png)
+![probe training curves](../assets/probe_curve.png)
 
 Two runs: `clean` trains on real frames only, `vaeaug` replaces a training clip with its
 VAE round-trip at $p = 0.5$. Both converge and plateau by about epoch 17, so 20 epochs is
@@ -127,7 +127,7 @@ that governs.
 
 ## 6. What the VAE actually does to the frames
 
-![real, reconstruction, amplified difference](out/vae_recon/view_fast.png)
+![real, reconstruction, amplified difference](../assets/vae_recon/view_fast.png)
 
 Three rows: real, the VAE reconstruction the augmentation substitutes, and
 $|\text{difference}|$ amplified $4\times$. Five clips spanning 0.00 m to 30.18 m of

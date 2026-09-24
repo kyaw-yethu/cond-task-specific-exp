@@ -194,9 +194,9 @@ numbers the measurements are taken against.
 
 Repaired, `full` + `calibrated_both`, at S2, six percentile slots:
 
-![bird's-eye view, repaired](out/dg_calibration/traj_bev_s2_repaired.png)
+![bird's-eye view, repaired](../assets/dg_calibration/traj_bev_s2_repaired.png)
 
-![paths projected onto the first frame](out/dg_calibration/traj_overlay_s2_repaired.png)
+![paths projected onto the first frame](../assets/dg_calibration/traj_overlay_s2_repaired.png)
 
 Both paths projected back onto the road they describe, at vehicle track width.
 

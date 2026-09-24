@@ -49,9 +49,9 @@ Gain over each setting's own N. The ADE cut is relative to that N's ADE. The $k=
 
 ## 6. Figures
 
-![loss curves](out/cond_curves_k1.png)
+![loss curves](../assets/cond_curves_k1.png)
 
-![clip 1565, turning past a parked car](out/comparison_k1/sheet_clip1565_turning.png)
+![clip 1565, turning past a parked car](../assets/comparison_k1/sheet_clip1565_turning.png)
 
 Rows: GT, N1, T1, V1, D1, G1. Six clips with all five conditions are in `out/comparison_k1/`; 12 clips (GT, D1, T1, G1), spanning the 10th to 99th percentile of path length plus the five sharpest turns, are in `out/comparison_k1_DTG_12/`.
 
