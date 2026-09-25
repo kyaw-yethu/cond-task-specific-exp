@@ -62,7 +62,9 @@ Stored at `volume://vessl-storage/yethu-drive/clips/` as one tar per scene
 per-dataset `index.json`, `manifest.json` and `README.md`. Format in
 [`unified/docs/FORMAT.md`](unified/docs/FORMAT.md); built by [`unified/`](unified/).
 
-## Checkpoints
+## Checkpoints [**NOT READY**]
+
+> **These checkpoints are trained on the previous `33x96x96` dataset which has failed samples. They need to be trained again**
 
 Three trained models, in
 [Google Drive](https://drive.google.com/drive/folders/1kv8P2oRp-c6zdsQd_aaVNAz1QQPCfkAx?usp=sharing).

@@ -3,6 +3,6 @@
 cd "$(dirname "${BASH_SOURCE[0]}")/../.."
 R=/opt/miniforge3/envs/render/bin/python
 for s in val test train; do
-  $R -u womd/scripts/build_womd.py render --split $s --workers 96 2>&1 | grep --line-buffered -v -E "INFO\]|gobj|Warning|/dev/input|inotify|warn|Can not find" || exit 1
+  $R -u womd/scripts/build_womd.py render --split $s --workers 48 2>&1 | grep --line-buffered -v -E "INFO\]|gobj|Warning|/dev/input|inotify|warn|Can not find" || exit 1
 done
 python3 -u womd/scripts/build_womd.py finalize 2>&1 | grep -v -i warn

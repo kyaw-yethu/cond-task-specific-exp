@@ -1,10 +1,25 @@
-"""Render selected scenarios: one MetaDrive rollout per scenario, two 33-frame clips out.
+"""Render selected scenarios: one MetaDrive rollout per clip, two 33-frame clips per scenario.
 
 Rendering follows f_toy.datasets.waymo.scenario.render_scenario (same camera, 96x96
 RGB, lidar off, ego log replay). Differences: the scenario is the 7 Hz resample, one
 env.step is 7 x 0.02 s of physics, the rollout runs to the end of the log even when
 MetaDrive reports arrive_dest (it does so at step 0 for a parked ego), and the labels
 carry the extra DATASET_PLAN.md section 5 fields.
+
+Two changes to MetaDrive's terrain keep the ground under the ego drawn:
+
+* ScenarioEnv paints roads onto the terrain only inside a 512 m square, and MetaDrive
+  centres that square on the world origin, which is the ego's first log position. A
+  fast ego leaves it within the 20 s log and drives on bare grass. The terrain is
+  therefore centred on the ego position at the clip's middle frame, which keeps the
+  whole 33-frame clip inside the square; that needs one rollout per clip.
+* The terrain is a heightfield with up to 50 m of relief, flattened only under
+  roads. The replayed ego stays level, so where the relief rises around it the
+  camera ends up below the terrain surface, which is not drawn from underneath, and
+  the frame shows the flat grey backdrop instead. TERRAIN_HEIGHT sets the relief to
+  0.1 m.
+
+World coordinates are unchanged by both, so the labels match the log as before.
 
 Clip j of scenario i lands at row 2 i + j of the split videos.npy, so workers
 write pixels straight into the memmap; labels go to one npz per scenario under
@@ -32,6 +47,7 @@ TARGET_MAX_DIST = 60.0
 TARGET_CONE_DEG = 30.0
 INTENT_DEG = 20.0
 CONTEXT_RAW = 5         # raw frames 0..4 are context at k=2
+TERRAIN_HEIGHT = 0.1    # m of terrain relief; MetaDrive's default is 50
 GPUS = (0, 1, 2, 3)
 CHUNK = 2000
 
@@ -47,6 +63,25 @@ def _wrap(a):
     return (a + np.pi) % (2 * np.pi) - np.pi
 
 
+def _centre_terrain_on_clip():
+    """Make Terrain.reset centre the terrain on the ego at log step _w["centre_step"]
+    rather than on the world origin, which is all MetaDrive's engine ever passes."""
+    from metadrive.engine.core.terrain import Terrain
+    if getattr(Terrain, "_womd_centred", False):
+        return
+    reset = Terrain.reset
+
+    def centred(self, center_point):
+        step = _w.get("centre_step")
+        if step is not None:
+            sd = self.engine.data_manager.current_scenario
+            pos = sd["tracks"][sd["metadata"]["sdc_id"]]["state"]["position"]
+            center_point = [float(pos[step][0]), float(pos[step][1])]
+        return reset(self, center_point)
+    Terrain.reset = centred
+    Terrain._womd_centred = True
+
+
 def make_env(db_dir, n):
     from panda3d.core import loadPrcFileData
     loadPrcFileData("", "load-display p3headlessgl")
@@ -54,6 +89,7 @@ def make_env(db_dir, n):
     from metadrive.component.sensors.rgb_camera import RGBCamera
     from metadrive.envs.scenario_env import ScenarioEnv
     from metadrive.policy.replay_policy import ReplayEgoCarPolicy
+    _centre_terrain_on_clip()
     return ScenarioEnv(dict(
         data_directory=db_dir, num_scenarios=n, start_scenario_index=0,
         agent_policy=ReplayEgoCarPolicy, show_terrain=True, show_sidewalk=True,
@@ -62,7 +98,7 @@ def make_env(db_dir, n):
                             side_detector=dict(num_lasers=0)),
         sensors={"rgb_camera": (RGBCamera, IMG, IMG)},
         show_interface=False, show_logo=False, show_fps=False, window_size=(IMG, IMG),
-        horizon=1000, crash_vehicle_done=False, out_of_route_done=False))
+        horizon=1000, crash_vehicle_done=False, out_of_route_done=False, height_scale=TERRAIN_HEIGHT))
 
 
 # ---------------------------------------------------------------- map context
@@ -300,10 +336,12 @@ def _init(db_dir, n, videos_path, ann_dir, offset=0):
 def _one(job):
     from .stats import SLICE_CODE
     i, entry = job
-    sd, R = rollout(_w["env"], i - _w.get("offset", 0))
-    assert sd["id"] == entry["scenario_id"], (sd["id"], entry["scenario_id"])
     anns = []
     for j, (t0, s) in enumerate(zip(entry["starts"], entry["slices"])):
+        # frame f shows log step f + 1, so the middle frame is log step t0 + CLIP // 2 + 1
+        _w["centre_step"] = t0 + CLIP // 2 + 1
+        sd, R = rollout(_w["env"], i - _w.get("offset", 0))
+        assert sd["id"] == entry["scenario_id"], (sd["id"], entry["scenario_id"])
         assert t0 + CLIP <= R["video"].shape[1], "rollout shorter than window"
         clip = np.ascontiguousarray(R["video"][:, t0:t0 + CLIP], dtype=np.uint8)
         os.pwrite(_w["fd"], clip.tobytes(), _w["off"] + (2 * i + j) * clip.nbytes)
